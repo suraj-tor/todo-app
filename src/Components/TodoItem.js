@@ -1,21 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import DeleteButton from "./DeleteButton";
 
 const TodoItem = (props) => {
+    const [delCard, setDelCard] = useState("pb-4");
+
+    const onDelete = () => {
+        setDelCard("pb-4 d-none");
+    };
+
+    const [text, setText] = useState("");
+
+    const handleTodo = () => {
+        let addClass = "text-decoration-line-through"
+        setText(addClass)
+    }
+
     return (
         <>
-            <div className="pb-4">
+            <div className={delCard}>
                 <div className="card">
                     <div className="row">
                         <div className="col-sm-10">
                             <div className="card-body">
-                                <input class="form-check-input me-3" type="checkbox" value="" id="flexCheckIndeterminate" />
-                                {props.text}
+                                <input onClick={handleTodo} class="form-check-input me-3" type="checkbox" value="" id="flexCheckIndeterminate" />
+                                <span className={text}>{props.text}</span>
                             </div>
                         </div>
                         <div className="col">
                             <div className="text-center py-2">
-                                <DeleteButton />
+                                <DeleteButton onDelete={onDelete} />
                             </div>
                         </div>
                     </div>
