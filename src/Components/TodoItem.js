@@ -22,7 +22,7 @@ const TodoItem = (props) => {
                     <div className="row">
                         <div className="col-sm-10">
                             <div className="card-body">
-                                <input onClick={handleTodo} class="form-check-input me-3" type="checkbox" value="" id="flexCheckIndeterminate" />
+                                <input onClick={handleTodo} className="form-check-input me-3" type="checkbox" value="" id="flexCheckIndeterminate" />
                                 <span className={text}>{props.text}</span>
                             </div>
                         </div>

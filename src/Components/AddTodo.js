@@ -1,6 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 
-const AddTodo = () => {
+const AddTodo = (props) => {
+    const [getData, setData] = useState("");
+
+    const handleInputText = (e) => {
+        setData(e.target.value);
+    };
+
+    const handleForm = (e) => {
+        e.preventDefault();
+        let newData = getData;
+        props.sendData(newData);
+        setData("")
+    };
+
     return (
         <>
             <div className="card">
@@ -11,10 +24,10 @@ const AddTodo = () => {
                             <label htmlFor="todotext" className="form-label">
                                 Enter Something
                             </label>
-                            <input type="text" className="form-control" id="todotext" />
+                            <input onChange={handleInputText} type="text" value={getData} className="form-control" id="todotext" />
                         </div>
 
-                        <button type="submit" className="btn btn-danger">
+                        <button onClick={handleForm} type="submit" className="btn btn-danger">
                             Submit
                         </button>
                     </form>
