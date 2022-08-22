@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import TodoItem from "./TodoItem";
 import TodoData from "../Data/TodoData";
 
 let data = TodoData;
 const TodoList = (props) => {
-    console.log(props.getData);
-    let updatedData = props.getData;
     const [todos, setTodos] = useState(data);
+    let updatedData = props.todos;
+    console.log(updatedData);
+    setTodos(updatedData)
+
 
     return (
         <>

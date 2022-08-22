@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import TodoData from "../Data/TodoData";
 
 const AddTodo = (props) => {
     const [getData, setData] = useState("");
@@ -9,7 +10,7 @@ const AddTodo = (props) => {
 
     const handleForm = (e) => {
         e.preventDefault();
-        let newData = getData;
+        let newData = {id:++TodoData.length, text:getData}
         props.sendData(newData);
         setData("")
     };

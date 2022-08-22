@@ -9,10 +9,9 @@ const App = () => {
 
     const sendData = (data) => {
         // console.log(data)
-        let updatedData = {id:++TodoData.length, text:data}
-        let newData = [updatedData, ...todos];
+        // let newData = [data, ...todos];
         // props.getData(newData)
-        setTodos(newData);
+        setTodos([data, ...todos]);
     };
 
     return (
@@ -24,7 +23,7 @@ const App = () => {
                         <AddTodo sendData={sendData} />
                     </div>
                     <div className="col-sm-8">
-                        <TodoList getData={todos} />
+                        <TodoList todos={todos} />
                     </div>
                 </div>
             </div>
