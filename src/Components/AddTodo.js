@@ -10,6 +10,7 @@ const AddTodo = (props) => {
 
     const handleForm = (e) => {
         e.preventDefault();
+        // debugger
         let newData = {id:++TodoData.length, text:getData}
         props.sendData(newData);
         setData("")

@@ -5,13 +5,12 @@ import TodoList from "./Components/TodoList";
 import TodoData from "./Data/TodoData";
 
 const App = () => {
-    const [todos, setTodos] = useState(TodoData);
+    const [todos, setTodos] = useState([...TodoData]);
 
     const sendData = (data) => {
         // console.log(data)
-        // let newData = [data, ...todos];
-        // props.getData(newData)
-        setTodos([data, ...todos]);
+        // debugger
+        setTodos(prev => [data, ...prev]);
     };
 
     return (
